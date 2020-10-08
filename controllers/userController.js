@@ -1,5 +1,3 @@
-
-
 /* Insert a user in database */
 exports.insertUser = (req, res, next) => {
 
@@ -52,13 +50,7 @@ exports.getUser = (req, res, next) => {
         result: []
       });
     }
-
-
   });
-
-
-
-
 }
 
 /* Get all the users */
@@ -66,7 +58,7 @@ exports.getUsers = (req, res, next) => {
   connection.query("SELECT * FROM user", function (err, result, fields) {
     if (err) throw err;
     res.json({
-      "result": result
+      result: result
     });
   });
 }

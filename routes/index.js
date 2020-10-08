@@ -3,6 +3,7 @@ const routerValid = express.Router();
 
 const userController = require('../controllers/userController.js');
 const tokenController = require('../controllers/tokenController.js');
+const meetingController = require('../controllers/meetingController.js');
 
 module.exports = function () {
 
@@ -29,7 +30,8 @@ module.exports = function () {
         }
     });
 
-    router.get('/token/verify', tokenController.verifyToken);
+    router.get('/token/verify',
+        tokenController.verifyToken);
 
     router.post('/user/register',
         userController.insertUser);
@@ -40,6 +42,20 @@ module.exports = function () {
     router.get('/user', routerValid,
         userController.getUsers);
 
+    router.get('/meeting/today', routerValid,
+        meetingController.getMeetingsToday);
+
+    router.get('/meeting/week', routerValid,
+        meetingController.getMeetingsLastWeek);
+
+    router.post('/meeting', routerValid,
+        meetingController.insertMeeting);
+
+    router.post('/meeting/reason', routerValid,
+        meetingController.getMeetingsByReason);
+
+    router.put('/meeting', routerValid,
+        meetingController.updateMeeting);
 
     return router;
 }

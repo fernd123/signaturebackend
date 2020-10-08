@@ -1,10 +1,11 @@
-class Meeting{
-    constructor(id, userId, area, initDate, endDate){
+export class Meeting{
+    constructor(id, userid, reason, signature) {
         this.id = id;
-        this.userId = userId;
-        this.area = area;
-        this.initDate = initDate;
-        this.endDate = endDate;
+        this.userid = userid;
+        this.reason = reason;
+        this.signature = signature;
+        this.initDate = new Date();
+        this.endDate = null;
     }
-}
+ }
 module.exports = Meeting;

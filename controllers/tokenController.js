@@ -1,4 +1,4 @@
-/* Insert a user in database */
+/* Check if a token is valid */
 exports.verifyToken = (req, res, next) => {
     const token = req.headers['access-token'];
     if (token) {
